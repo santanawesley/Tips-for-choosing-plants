@@ -1,4 +1,18 @@
 body {
-    font-family: "Montserrat", sans-serif;
-    background-color: green;
+  font-family: "Montserrat", sans-serif;
+  margin: 0px;
+  .header {
+    height: 593px;
+    @media screen and (max-width: 320px) {
+      background-image: url(./images/hero/mobile/mobile-leaves.png), url(./images/hero/mobile/mobile-plantperson.png);
+      background-size: 320px 412px, 276px 234px;
+      background-repeat: no-repeat;
+      background-position: center top, center 95%;
+      background-color: #75BC97;
+      padding: 35px;
+    }
+      .title-header {
+        color: #fff;
+      }
+  }
 }
