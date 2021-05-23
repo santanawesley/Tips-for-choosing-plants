@@ -103,4 +103,24 @@ body {
       width: 85px;
     }
   }
+
+  .button {
+    margin: 32px 19px 22px;
+    button{
+      border: 1px solid #15573F;
+      box-sizing: border-box;
+      border-radius: 25px;
+      color: #196146;
+      font-size: 16px;
+      line-height: 20px;
+      padding: 14px 64px;
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      img {
+        padding-right: 16px;
+      }
+    }
+  }
 }

@@ -115,3 +115,10 @@ function toogleMenu(dataOptions){
 }
 
 toogleMenu(dataOptions);
+
+const buttonToTop = document.getElementById("back-to-top");
+buttonToTop.addEventListener("click", backToTop);
+
+function backToTop(){
+	window.scrollTo({ top: 0, behavior: "smooth" });
+}
