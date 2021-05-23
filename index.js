@@ -95,8 +95,6 @@ function handleOptionSelected(e) {
 	titleElem.textContent = newValue;
 	titleElem.appendChild(icon);
 
-	//trigger custom event
-	document.querySelector(".dropdown .title").dispatchEvent(new Event("change"));
 	//setTimeout is used so transition is properly shown
 	setTimeout(() => toggleClass(icon, "rotate-90", 0));
 	toggleClass(e.target.parentNode, "hide");
@@ -144,14 +142,27 @@ function callApiPlants(selected) {
 	const url = `https://front-br-challenges.web.app/api/v2/green-thumb/?sun=${sun}&water=${water}&pets=${pets}`;
 
 	fetch(url).then((resp) => resp.json()).then(function (data) {
-		presentPlants(data);
+		changeDivResults(data);
 	});
 }
 
-function presentPlants(data) {
+function changeDivResults(data) {
+	const divNoResults = document.getElementById("body-no-results");
+	const divResults = document.getElementById("body-results");
+	const changeDiv = divResults.classList.contains("hide");
+
 	if (data.error) {
 		console.log("data = ", data.error);
-	} else {
-		console.log("data = ", data);
+		return;
+	} else if (changeDiv){
+		divResults.classList.remove("hide");
+		divNoResults.classList.add("hide");
+		presentPlants(data);
+
 	}
+}
+
+function presentPlants(data) {
+	const divImagesPlants = document.getElementById("imagesPlants");
+	divImagesPlants.innerHTML = "Novas Plantas";
 }

@@ -85,7 +85,7 @@ body {
     }
   }
 
-  .body-results {
+  .body-no-results {
     margin: 35px 47px 35px 32px;
     font-size: 16px;
     line-height: 27px;
@@ -101,6 +101,22 @@ body {
       margin-left: auto;
       margin-right: auto;
       width: 85px;
+    }
+  }
+
+  .body-results {
+    .img-results {
+      width: 146px;
+      padding: 32px 0 0 46px;
+    }
+    h2{
+      padding: 16px 29px 0 46px;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 40px;
+      line-height: 49px;
+      color: #0C261C;
     }
   }
 
@@ -122,5 +138,9 @@ body {
         padding-right: 16px;
       }
     }
+  }
+
+  .hide {
+    display: none;
   }
 }
