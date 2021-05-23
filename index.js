@@ -8,18 +8,18 @@ import Wateringcan from "./images/illustrations/wateringcan.png";
 const dataOptions = [
 	{
 		options: [
-			"noSunlight",
-			"lowSunlight",
-			"highSunlight"
+			"No sunlight",
+			"Low sunlight",
+			"High sunlight"
 		],
 		icon: Sol,
 		text: "<span class='detach'>1.</span> Set the amount of <span class='detach'>sunlight</span> your plant will get.",
 		alt: "Intensity of the sun",
 	}, {
 		options: [
-			"rarely",
-			"regularly",
-			"daily"
+			"Rarely",
+			"Regularly",
+			"Daily"
 		],
 		icon: Dog,
 		text: "<span class='detach'>2.</span> How often do you want to <span class='detach'>water</span> your plant?",
@@ -49,12 +49,11 @@ function selectionContent(dataOptions) {
           ${dropdownContent(type.options, index)}
         </div>
       </div>`;
-		
 	})}`;
 }
 
 function dropdownContent(options, index) {
-	return `<div class="title pointerCursor" id=${"type-"+index}>
+	return `<div class="title pointerCursor" id=${"type-" + index}>
     Select...
     <span class="icon-arrow-dropdown"><img alt="Open/close options" src="${Arrow}" /></span>
   </div>
@@ -67,7 +66,7 @@ function dropdownContent(options, index) {
 
 // Control option selection
 function toggleClass(elem, className) {
-	if (elem.className.indexOf(className) !== -1) {
+	if (elem && elem.className.indexOf(className) !== -1) {
 		elem.className = elem.className.replace(className, "");
 	}
 	else {
@@ -101,13 +100,15 @@ function handleOptionSelected(e) {
 	//setTimeout is used so transition is properly shown
 	setTimeout(() => toggleClass(icon, "rotate-90", 0));
 	toggleClass(e.target.parentNode, "hide");
+
+	checkChoices();
 }
 
 //get elements
-function toogleMenu(dataOptions){
+function toogleMenu(dataOptions) {
 	dataOptions.map((type, index) => {
-		let dropdownTitle = document.getElementById(`${"type-"+index}`);
-		let dropdownOptions = document.querySelectorAll(".dropdown .option");
+		const dropdownTitle = document.getElementById(`${"type-" + index}`);
+		const dropdownOptions = document.querySelectorAll(".dropdown .option");
 		//bind listeners to these elements
 		dropdownTitle.addEventListener("click", toggleMenuDisplay);
 		dropdownOptions.forEach(option => option.addEventListener("click", handleOptionSelected));
@@ -119,6 +120,38 @@ toogleMenu(dataOptions);
 const buttonToTop = document.getElementById("back-to-top");
 buttonToTop.addEventListener("click", backToTop);
 
-function backToTop(){
+function backToTop() {
 	window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// API call
+function checkChoices() {
+	let selected = [];
+	dataOptions.map((data, index) => {
+		let optionSelected = document.getElementById(`${"type-" + index}`).innerText;
+		if (optionSelected !== "Select...") {
+			selected.push(optionSelected);
+		}
+	});
+	selected.length === dataOptions.length && callApiPlants(selected);
+}
+
+function callApiPlants(selected) {
+	const sun = selected[0] === "No sunlight" ? "no" : selected[0] === "Low sunlight" ? "low" : "high";
+	const water = selected[1] === "Regularly" ? "regularly" : selected[1] === "Daily" ? "daily" : "rarely";
+	const pets = selected[2] === "Yes" ? true : false;
+
+	const url = `https://front-br-challenges.web.app/api/v2/green-thumb/?sun=${sun}&water=${water}&pets=${pets}`;
+
+	fetch(url).then((resp) => resp.json()).then(function (data) {
+		presentPlants(data);
+	});
+}
+
+function presentPlants(data) {
+	if (data.error) {
+		console.log("data = ", data.error);
+	} else {
+		console.log("data = ", data);
+	}
 }
