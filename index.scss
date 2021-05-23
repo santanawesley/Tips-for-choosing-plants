@@ -118,6 +118,53 @@ body {
       line-height: 49px;
       color: #0C261C;
     }
+    .pick {
+      background: #FFFFFF;
+      box-shadow: 0px 28px 38px rgba(0, 0, 0, 0.0925754);
+      border-radius: 5px;
+      width: 258px;
+      height: 321px;
+      margin-left: 27px;
+      position: relative;
+      .favorite {
+        position: absolute;
+        background: #75BC97;
+        box-shadow: 0px 8px 22px rgba(0, 0, 0, 0.181163);
+        font-family: Roboto;
+        font-weight: 700;
+        font-size: 12.8px;
+        line-height: 15px;
+        color: #FFF;
+        height: 34.4px;
+        width: 132px;
+        border-radius: 0 19px 19px 0;
+        margin-top: 20px;
+        z-index: 1;
+      }
+      .img-plant {
+        position: absolute;
+        bottom: 80px;
+        right: 18px;
+        width: 187px;
+      }
+      .data-plant {
+        position: absolute;
+        bottom: 14px;
+        left: 21px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 28px;
+        color: #1E6B4E;
+        width: 80%;
+        .name-plant {
+          margin: 0;
+        }
+        .value {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+    }
   }
 
   .button {

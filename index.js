@@ -1,5 +1,14 @@
 import "./index.scss";
 import Arrow from "./images/icons/arrow-dropdown.svg";
+import OneDrop from "./images/icons/1-drop.svg";
+import TwoDrop from "./images/icons/2-drops.svg";
+import ThreeDrop from "./images/icons/3-drops.svg";
+import NoSun from "./images/icons/no-sun.svg";
+import LowSun from "./images/icons/low-sun.svg";
+import HighSun from "./images/icons/high-sun.svg";
+import Toxic from "./images/icons/toxic.svg";
+import Pet from "./images/icons/pet.svg";
+
 import Sol from "./images/illustrations/sun.png";
 import Dog from "./images/illustrations/dog.png";
 import Wateringcan from "./images/illustrations/wateringcan.png";
@@ -164,5 +173,44 @@ function changeDivResults(data) {
 
 function presentPlants(data) {
 	const divImagesPlants = document.getElementById("imagesPlants");
-	divImagesPlants.innerHTML = "Novas Plantas";
+
+	data = data[0];
+
+	const pet = (toxicity) => {
+		return toxicity === true ? Pet : Toxic;
+	};
+
+	const sun = (amount) => {
+		if(amount == "no") return NoSun;
+		if(amount == "low") return LowSun;
+		if(amount == "high") return HighSun;
+	};
+
+	const water = (amount) => {
+		if(amount == "rarely") return OneDrop;
+		if(amount == "regularly") return TwoDrop;
+		if(amount == "daily") return ThreeDrop;
+	};
+
+	const suggestedPlants = `<div class="">
+		<div class="pick">
+			<div class="favorite">
+			</div>
+			<img src="${data.url}" alt="Plant ${data.name}" class="img-plant">
+			<div class="data-plant">
+				<p class="name-plant">${data.name}</p>
+				<div class="value">
+					$${data.price}
+					<span class="icons">
+						<img src="${pet(data.toxicity)}" alt="Icon pet" class="icon">
+						<img src="${sun(data.sun)}" alt="Icon sun" class="icon">
+						<img src="${water(data.water)}" alt="Icon drop" class="icon">
+					</span>
+				</div>
+			<div>
+		<div>
+
+  </div>`;
+
+	divImagesPlants.innerHTML = suggestedPlants;
 }
