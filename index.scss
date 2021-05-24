@@ -12,9 +12,11 @@ body {
     background-position: center top, center 95%;
     background-color: #75BC97;
     padding: 35px;
-
-    .title-header {
-      color: #fff;
+    
+    .text-header {
+      .title-header {
+        color: #fff;
+      };
     }
   }
 
@@ -221,14 +223,27 @@ body {
   body {
     width: 100%;
     .header {
-      height: 361px;
-      background-image: url(./images/hero/desktop/left-leaves.png), url(./images/hero/desktop/plantperson.png), url(./images/hero/desktop/left-leaves.png);
-      background-size: 862px 500px, 335px 428px, 361px 500px;
+      height: 500px;
+      background-image: url(./images/hero/desktop/left-leaves.png), url(./images/hero/desktop/plantperson.png), url(./images/hero/desktop/right-leaves.png);
+      background-size: 55% 593px, 335px 428px, 30% 593px;
       background-repeat: no-repeat;
-      background-position: left top, center, right top;
+      background-position: left bottom, 65% 75%, right bottom;
       background-color: #75BC97;
       padding: 35px;
-    };
+      padding-top: 57px;
+      display: flex;
+      justify-content: center;
+      .text-header {
+        width: 900px;
+        .title-header {
+          width: 400px;
+          font-size: 70px;
+          line-height: 85px;
+          padding-top: 42px;
+          padding-bottom: 31px;
+        }
+      }
+    }
     .body-options {
       display: flex;
       justify-content: center;
@@ -250,6 +265,9 @@ body {
         display: flex;
         align-items: center;
         width: 900px;
+      }
+      .text-no-results {
+        width: 219px;
       }
     }
     .body-results {
