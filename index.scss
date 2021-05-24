@@ -146,6 +146,7 @@ body {
       position: relative;
       .favorite {
         position: absolute;
+        display: flex;
         background: #75BC97;
         box-shadow: 0px 8px 22px rgba(0, 0, 0, 0.181163);
         font-family: Roboto;
@@ -158,6 +159,9 @@ body {
         border-radius: 0 19px 19px 0;
         margin-top: 20px;
         z-index: 1;
+        .staff {
+          padding-left: 16px;
+        }
       }
       .img-plant {
         position: absolute;

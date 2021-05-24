@@ -8,6 +8,7 @@ import LowSun from "./images/icons/low-sun.svg";
 import HighSun from "./images/icons/high-sun.svg";
 import Toxic from "./images/icons/toxic.svg";
 import Pet from "./images/icons/pet.svg";
+import Staff from "./images/icons/staff-favorite.svg";
 
 import Sol from "./images/illustrations/sun.png";
 import Dog from "./images/illustrations/dog.png";
@@ -203,6 +204,7 @@ function generatePlantsCards(data){
 	return data.map((pick, index) => {
 		return (`<div class="pick id=${index}">
 			<div class="favorite ${!pick.staff_favorite && "hide"}">
+				<img src="${Staff}" alt="" class="icon staff">
 			</div>
 			<img src="${pick.url}" alt="Plant ${pick.name}" class="img-plant">
 			<div class="data-plant">
