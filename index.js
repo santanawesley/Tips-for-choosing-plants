@@ -58,7 +58,7 @@ function selectionContent(dataOptions) {
           ${dropdownContent(type.options, index)}
         </div>
       </div>`);
-	})}`;
+	}).join("")}`;
 }
 
 function dropdownContent(options, index) {
@@ -69,7 +69,7 @@ function dropdownContent(options, index) {
 		<div class='menu pointerCursor hide'>
 			${options.map(type => {
 				return (`<div class='option' id='option1'> ${type} </div>`);
-			})}'
+			}).join("")}'
 		</div>`;
 }
 
@@ -217,5 +217,5 @@ function generatePlantsCards(data){
 				</div>
 			</div>
 		</div>`);
-	});
+	}).join("");
 }
