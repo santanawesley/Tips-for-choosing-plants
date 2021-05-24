@@ -159,20 +159,17 @@ function callApiPlants(selected) {
 function changeDivResults(data) {
 	const divNoResults = document.getElementById("bodyNoResults");
 	const divResults = document.getElementById("bodyResults");
-	const changeDiv = divResults.classList.contains("hide");
 
-	if (data.error) {
+	if (data.error){
 		console.log("data = ", data.error);
 		return;
-	} else if (changeDiv){
+	} else{
 		divResults.classList.remove("hide");
 		divNoResults.classList.add("hide");
 		presentPlants(data);
 
 	}
 }
-
-presentPlants();
 
 function presentPlants(data) {
 	const divImagesPlants = document.getElementById("imagesPlants");
