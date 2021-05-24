@@ -118,13 +118,32 @@ body {
       line-height: 49px;
       color: #0C261C;
     }
+    .imagesPlants {
+      overflow: auto;
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+      scrollbar-width: none;  /* Firefox */
+    }
+    .imagesPlants::-webkit-scrollbar {
+        display: none;  /* Safari and Chrome */
+    }
+
+    .plants {
+      display: flex;
+      width: min-content;
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      :last-child{
+        margin-right: 16px;
+      }
+    }
     .pick {
       background: #FFFFFF;
       box-shadow: 0px 28px 38px rgba(0, 0, 0, 0.0925754);
       border-radius: 5px;
       width: 258px;
       height: 321px;
-      margin-left: 27px;
+      margin-left: 16px;
       position: relative;
       .favorite {
         position: absolute;
@@ -145,7 +164,8 @@ body {
         position: absolute;
         bottom: 80px;
         right: 18px;
-        width: 187px;
+        max-height: 225px;
+        max-width: 240px;
       }
       .data-plant {
         position: absolute;
@@ -155,7 +175,7 @@ body {
         font-size: 16px;
         line-height: 28px;
         color: #1E6B4E;
-        width: 80%;
+        width: 100%;
         .name-plant {
           margin: 0;
         }

@@ -30,7 +30,7 @@ const dataOptions = [
 			"Regularly",
 			"Daily"
 		],
-		icon: Dog,
+		icon: Wateringcan,
 		text: "<span class='detach'>2.</span> How often do you want to <span class='detach'>water</span> your plant?",
 		alt: "Watering plant",
 	}, {
@@ -38,7 +38,7 @@ const dataOptions = [
 			"No/They don't care",
 			"Yes"
 		],
-		icon: Wateringcan,
+		icon: Dog,
 		text: "<span class='detach'>3.</span> Do you have pets? Do they <span class='detach'>chew</span> plants?",
 		alt: "Pets",
 	}
@@ -62,15 +62,15 @@ function selectionContent(dataOptions) {
 }
 
 function dropdownContent(options, index) {
-	return `<div class="title pointerCursor" id=${"type-" + index}>
-    Select...
-    <span class="icon-arrow-dropdown"><img alt="Open/close options" src="${Arrow}" /></span>
-  </div>
-  <div class='menu pointerCursor hide'>
-    ${options.map(type => {
-		return (`<div class='option' id='option1'> ${type} </div>`);
-	})}'
-  </div>`;
+	return `<div class="title pointerCursor" id=${"type" + index}>
+		Select...
+		<span class="icon-arrow-dropdown"><img alt="Open/close options" src="${Arrow}" /></span>
+		</div>
+		<div class='menu pointerCursor hide'>
+			${options.map(type => {
+				return (`<div class='option' id='option1'> ${type} </div>`);
+			})}'
+		</div>`;
 }
 
 // Control option selection
@@ -114,7 +114,7 @@ function handleOptionSelected(e) {
 //get elements
 function toogleMenu(dataOptions) {
 	dataOptions.map((type, index) => {
-		const dropdownTitle = document.getElementById(`${"type-" + index}`);
+		const dropdownTitle = document.getElementById(`${"type" + index}`);
 		const dropdownOptions = document.querySelectorAll(".dropdown .option");
 		//bind listeners to these elements
 		dropdownTitle.addEventListener("click", toggleMenuDisplay);
@@ -124,7 +124,7 @@ function toogleMenu(dataOptions) {
 
 toogleMenu(dataOptions);
 
-const buttonToTop = document.getElementById("back-to-top");
+const buttonToTop = document.getElementById("backToTop");
 buttonToTop.addEventListener("click", backToTop);
 
 function backToTop() {
@@ -135,7 +135,7 @@ function backToTop() {
 function checkChoices() {
 	let selected = [];
 	dataOptions.map((data, index) => {
-		let optionSelected = document.getElementById(`${"type-" + index}`).innerText;
+		let optionSelected = document.getElementById(`${"type" + index}`).innerText;
 		if (optionSelected !== "Select...") {
 			selected.push(optionSelected);
 		}
@@ -156,8 +156,8 @@ function callApiPlants(selected) {
 }
 
 function changeDivResults(data) {
-	const divNoResults = document.getElementById("body-no-results");
-	const divResults = document.getElementById("body-results");
+	const divNoResults = document.getElementById("bodyNoResults");
+	const divResults = document.getElementById("bodyResults");
 	const changeDiv = divResults.classList.contains("hide");
 
 	if (data.error) {
@@ -171,13 +171,21 @@ function changeDivResults(data) {
 	}
 }
 
+presentPlants();
+
 function presentPlants(data) {
 	const divImagesPlants = document.getElementById("imagesPlants");
 
-	data = data[0];
+	const suggestedPlants = `<div class="plants">
+		${generatePlantsCards(data)}
+  </div>`;
 
+	divImagesPlants.innerHTML = suggestedPlants;
+}
+
+function generatePlantsCards(data){
 	const pet = (toxicity) => {
-		return toxicity === true ? Pet : Toxic;
+		return toxicity === true ? Toxic : Pet;
 	};
 
 	const sun = (amount) => {
@@ -192,25 +200,22 @@ function presentPlants(data) {
 		if(amount == "daily") return ThreeDrop;
 	};
 
-	const suggestedPlants = `<div class="">
-		<div class="pick">
-			<div class="favorite">
+	return data.map((pick, index) => {
+		return `<div class="pick id=${index}">
+			<div class="favorite ${!pick.staff_favorite && "hide"}">
 			</div>
-			<img src="${data.url}" alt="Plant ${data.name}" class="img-plant">
+			<img src="${pick.url}" alt="Plant ${pick.name}" class="img-plant">
 			<div class="data-plant">
-				<p class="name-plant">${data.name}</p>
+				<p class="name-plant">${pick.name}</p>
 				<div class="value">
-					$${data.price}
+					$${pick.price}
 					<span class="icons">
-						<img src="${pet(data.toxicity)}" alt="Icon pet" class="icon">
-						<img src="${sun(data.sun)}" alt="Icon sun" class="icon">
-						<img src="${water(data.water)}" alt="Icon drop" class="icon">
+						<img src="${pet(pick.toxicity)}" alt="Icon pet" class="icon">
+						<img src="${sun(pick.sun)}" alt="Icon sun" class="icon">
+						<img src="${water(pick.water)}" alt="Icon drop" class="icon">
 					</span>
 				</div>
-			<div>
-		<div>
-
-  </div>`;
-
-	divImagesPlants.innerHTML = suggestedPlants;
+			</div>
+		</div>`;
+	});
 }
