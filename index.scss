@@ -6,14 +6,13 @@ body {
   
   .header {
     height: 593px;
-    @media screen and (max-width: 320px) {
-      background-image: url(./images/hero/mobile/mobile-leaves.png), url(./images/hero/mobile/mobile-plantperson.png);
-      background-size: 320px 412px, 276px 234px;
-      background-repeat: no-repeat;
-      background-position: center top, center 95%;
-      background-color: #75BC97;
-      padding: 35px;
-    }
+    background-image: url(./images/hero/mobile/mobile-leaves.png), url(./images/hero/mobile/mobile-plantperson.png);
+    background-size: 320px 412px, 276px 234px;
+    background-repeat: no-repeat;
+    background-position: center top, center 95%;
+    background-color: #75BC97;
+    padding: 35px;
+
     .title-header {
       color: #fff;
     }
@@ -201,6 +200,7 @@ body {
       cursor: pointer;
       display: flex;
       align-items: center;
+      justify-content: center;
       img {
         padding-right: 16px;
       }
@@ -208,6 +208,57 @@ body {
   }
 
   .hide {
-    display: none;
+    display: none !important;
+  }
+}
+
+
+@media screen and (min-width: 321px) {
+  body {
+    width: 100%;
+    .header {
+      height: 361px;
+      background-image: url(./images/hero/desktop/left-leaves.png), url(./images/hero/desktop/plantperson.png), url(./images/hero/desktop/left-leaves.png);
+      background-size: 862px 500px, 335px 428px, 361px 500px;
+      background-repeat: no-repeat;
+      background-position: left top, center, right top;
+      background-color: #75BC97;
+      padding: 35px;
+    };
+    .body-options {
+      display: flex;
+      justify-content: center;
+      .body-options-cards {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        width: 900px;
+
+        .option-card {
+          width: 219px;
+        }
+      }
+    }
+    .body-no-results {
+      display: flex;
+      justify-content: center;
+      .limitador-tamanho {
+        display: flex;
+        align-items: center;
+        width: 900px;
+      }
+    }
+    .body-results {
+      display: flex;
+      justify-content: center;
+      .limitador-tamanho {
+        width: 900px;
+      }
+    }
+    .button {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
   }
 }

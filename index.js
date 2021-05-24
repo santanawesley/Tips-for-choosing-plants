@@ -45,11 +45,11 @@ const dataOptions = [
 ];
 
 // Generate content from selection div options
-document.querySelector(".body-options").innerHTML = selectionContent(dataOptions);
+document.querySelector(".body-options-cards").innerHTML = selectionContent(dataOptions);
 
 function selectionContent(dataOptions) {
 	return `${dataOptions.map((type, index) => {
-		return `<div>
+		return (`<div class="option-card">
         <img src="${type.icon}" alt="${type.alt}" class="icon-options">
         <p class="questions">
           ${type.text}
@@ -57,7 +57,7 @@ function selectionContent(dataOptions) {
         <div class='dropdown'>
           ${dropdownContent(type.options, index)}
         </div>
-      </div>`;
+      </div>`);
 	})}`;
 }
 
@@ -201,7 +201,7 @@ function generatePlantsCards(data){
 	};
 
 	return data.map((pick, index) => {
-		return `<div class="pick id=${index}">
+		return (`<div class="pick id=${index}">
 			<div class="favorite ${!pick.staff_favorite && "hide"}">
 			</div>
 			<img src="${pick.url}" alt="Plant ${pick.name}" class="img-plant">
@@ -216,6 +216,6 @@ function generatePlantsCards(data){
 					</span>
 				</div>
 			</div>
-		</div>`;
+		</div>`);
 	});
 }
