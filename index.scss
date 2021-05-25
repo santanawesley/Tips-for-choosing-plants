@@ -312,29 +312,86 @@ body {
       justify-content: center;
       .limitador-tamanho {
         width: 900px;
+        .img-results {
+          width: 158px;
+          padding: 37px 0 20px;
+        };
+        h2{
+          padding: 0 0 54px 0;
+          font-size: 55px;
+          line-height: 67px;
+        };
+        .plants {
+          width: 925px;
+          display: block;
+          margin-left: -25px;
+          .pick {
+            margin-bottom: 20px;
+            width: 206px;
+            height: 245px;
+            box-shadow: none;
+            float: left;
+            margin-left: 25px;
+            .data-plant {
+              left: 19px;
+              width: 80%;
+              .value {
+                color: #257556;
+              }
+            }
+            .img-plant {
+              max-width: 180px;
+              max-height: 155px;
+              left: 50%;
+              transform: translate(-50%, 0);
+            }
+          }
+          .favorite-card {
+            width: 437px;
+            height: 510px;
+            .favorite {
+              width: 189px;
+              height: 43px;
+              margin-top: 31px;
+              .staff {
+                width: 142px;
+              }
+            }
+            .img-plant {
+              max-width: 355px;
+              max-height: 390px;
+              bottom: 118px;
+            }
+            .data-plant {
+              display: flex;
+              justify-content: space-between;
+              width: 90%;
+              .name-plant {
+                font-size: 35px;
+                line-height: 37px;
+                width: 190px;
+              }
+              .value {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                font-size: 24px;
+                .icon {
+                  width: 30px;
+                }
+              }
+            }
+          }
+          :last-child{
+            margin-right: 0;
+          }
+        }
       }
-      .plants {
-        width: 900px;
-        display: block;
-        .pick {
-          margin-bottom: 20px;
-          width: 206px;
-          box-shadow: none;
-        }
-        .favorite-card {
-          width: 428px;
-          height: 662px;
-        }
-        :last-child{
-          margin-right: 0;
-        }
-      }
-
     }
+
     .button {
       margin-right: 0;
       margin-left: 0;
     }
-
   }
 }

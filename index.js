@@ -69,8 +69,8 @@ function dropdownContent(options, index) {
 		</div>
 		<div class='menu pointerCursor hide'>
 			${options.map(type => {
-				return (`<div class='option' id='option1'> ${type} </div>`);
-			}).join("")}
+		return (`<div class='option' id='option1'> ${type} </div>`);
+	}).join("")}
 		</div>`;
 }
 
@@ -91,8 +91,8 @@ function toggleMenuDisplay(e) {
 	const menu = dropdown.querySelector(".menu");
 	const icon = dropdown.querySelector(".icon-arrow-dropdown");
 
-	toggleClass(menu, "hide");
-	toggleClass(icon, "rotate-90");
+	menu && toggleClass(menu, "hide");
+	icon && toggleClass(icon, "rotate-90");
 }
 
 function handleOptionSelected(e) {
@@ -174,6 +174,11 @@ function changeDivResults(data) {
 function presentPlants(data) {
 	const divImagesPlants = document.getElementById("imagesPlants");
 
+	data = data.sort(sortByFavorite);
+	function sortByFavorite(a, b){
+		return b.staff_favorite - a.staff_favorite;
+	}
+
 	const suggestedPlants = `<div class="plants">
 		${generatePlantsCards(data)}
   </div>`;
@@ -198,7 +203,7 @@ function generatePlantsCards(data){
 		if(amount == "daily") return ThreeDrop;
 	};
 
-	return data.map((pick, index) => {
+	return data.map((pick) => {
 		return (`<div class="pick ${pick.staff_favorite ? "favorite-card" : ""}">
 			<div class="${pick.staff_favorite ? "favorite" : "hide"}">
 				<img src="${Staff}" alt="" class="icon staff">
