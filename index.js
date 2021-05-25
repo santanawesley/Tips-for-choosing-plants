@@ -49,9 +49,12 @@ const dataOptions = [
 document.querySelector(".body-options-cards").innerHTML = selectionContent(dataOptions);
 
 function selectionContent(dataOptions) {
+	console.log('datOptions = ', dataOptions);
 	return `${dataOptions.map((type, index) => {
+		console.log('type = ', type)
+
 		return (`<div class="option-card">
-        <img src="${type.icon}" alt="${type.alt}" class="icon-options">
+        <img src="${type.icon}" alt="${type.alt}" class="icon-options ${type.icon.indexOf("wateringcan") !== -1 ? "wateringcan" : ""}">
         <p class="questions">
           ${type.text}
         </p>
@@ -70,7 +73,7 @@ function dropdownContent(options, index) {
 		<div class='menu pointerCursor hide'>
 			${options.map(type => {
 				return (`<div class='option' id='option1'> ${type} </div>`);
-			}).join("")}'
+			}).join("")}
 		</div>`;
 }
 
@@ -199,8 +202,8 @@ function generatePlantsCards(data){
 	};
 
 	return data.map((pick, index) => {
-		return (`<div class="pick id=${index}">
-			<div class="favorite ${!pick.staff_favorite && "hide"}">
+		return (`<div class="pick ${pick.staff_favorite ? "favorite-card" : ""}">
+			<div class="${pick.staff_favorite ? "favorite" : "hide"}">
 				<img src="${Staff}" alt="" class="icon staff">
 			</div>
 			<img src="${pick.url}" alt="Plant ${pick.name}" class="img-plant">
