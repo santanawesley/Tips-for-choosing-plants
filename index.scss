@@ -250,17 +250,20 @@ body {
       background-repeat: no-repeat;
       background-position: left bottom, 65% 75%, right bottom;
       background-color: #75BC97;
-      padding: 35px;
-      padding-top: 57px;
       display: flex;
       justify-content: center;
       .text-header {
         width: 900px;
+        padding-top: 58px;
+        .logo-greenthumb{
+          width: 209px;
+        }
         .title-header {
           width: 400px;
           font-size: 70px;
           line-height: 85px;
-          padding-top: 42px;
+          margin: 0;
+          padding-top: 47px;
           padding-bottom: 31px;
         }
       }
@@ -268,6 +271,7 @@ body {
     .body-options {
       display: flex;
       justify-content: center;
+      padding: 47px 0 53px;
       .body-options-cards {
         display: flex;
         justify-content: space-between;
@@ -276,20 +280,32 @@ body {
 
         .option-card {
           width: 219px;
+          margin: 0;
         }
       }
     }
     .body-no-results {
       display: flex;
       justify-content: center;
+      padding: 74px 0 67px;
+      margin: 0;
       .limitador-tamanho {
         display: flex;
         align-items: center;
         width: 900px;
+        position: relative;
+        .img-no-results {
+          width: 105px;
+          position: absolute;
+          top: -15px;
+          left: 550px;
+        }
       }
       .text-no-results {
-        width: 219px;
+        width: 222px;
+        margin: 13px 0 102px;
       }
+
     }
     .body-results {
       display: flex;
