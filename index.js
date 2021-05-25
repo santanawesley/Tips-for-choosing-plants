@@ -49,10 +49,7 @@ const dataOptions = [
 document.querySelector(".body-options-cards").innerHTML = selectionContent(dataOptions);
 
 function selectionContent(dataOptions) {
-	console.log('datOptions = ', dataOptions);
 	return `${dataOptions.map((type, index) => {
-		console.log('type = ', type)
-
 		return (`<div class="option-card">
         <img src="${type.icon}" alt="${type.alt}" class="icon-options ${type.icon.indexOf("wateringcan") !== -1 ? "wateringcan" : ""}">
         <p class="questions">
