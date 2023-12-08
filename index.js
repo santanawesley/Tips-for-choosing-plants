@@ -192,15 +192,15 @@ function generatePlantsCards(data){
 	};
 
 	const sun = (amount) => {
-		if(amount == "no") return NoSun;
-		if(amount == "low") return LowSun;
-		if(amount == "high") return HighSun;
+		if(amount === "no") return NoSun;
+		if(amount === "low") return LowSun;
+		if(amount === "high") return HighSun;
 	};
 
 	const water = (amount) => {
-		if(amount == "rarely") return OneDrop;
-		if(amount == "regularly") return TwoDrop;
-		if(amount == "daily") return ThreeDrop;
+		if(amount === "rarely") return OneDrop;
+		if(amount === "regularly") return TwoDrop;
+		if(amount === "daily") return ThreeDrop;
 	};
 
 	return data.map((pick) => {

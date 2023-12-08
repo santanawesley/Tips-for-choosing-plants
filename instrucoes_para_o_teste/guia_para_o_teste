@@ -1,0 +1,49 @@
+GUIA PARA O TESTE PRÁTICO - FRONT END DEVELOPER
+Olá,
+Nesta etapa, queremos saber um pouco mais das suas habilidades em HTML, CSS e JS!
+Deixamos disponível no codesandbox uma aplicação bem simples contendo alguns arquivos
+iniciais junto com todas as imagens necessárias. Caso queira baixar as imagens separadamente
+você pode clicar aqui.
+O seu objetivo é construir uma aplicação sem uso de frameworks (Ex: React, Angular entre outros)
+de acordo com esse layout:
+Desktop
+Mobile
+Styleguide
+Considerando Desktop & Mobile, portanto, é uma aplicação responsiva.
+(O GIF acima mostra como visualizar diferentes páginas no Figma estando logado, você precisará disso para
+navegar entre o layout desktop e o mobile)
+Para que o projeto funcione como o desenhado, existe a necessidade de integrar com a API que
+criamos para esse teste:
+https://front-br-challenges.web.app/api/v2/green-thumb/?sun=high&water=regularly&pets=false
+Essa rota aceita somente três parâmetros obrigatórios:
+(Entre parênteses está as opções que ele aceita)
+- sun | [ no | low | high ]
+- water | [ regularly | daily | rarely ]
+- pets | [ true | false ]
+Esperamos que você consiga integrar os selects para trazer a lista de plantas dinamicamente,
+conforme a combinação das opções:
+Como instalar e rodar a aplicação?
+Disponibilizamos o projeto no codesandbox para facilitar a criação do ambiente de
+desenvolvimento, então basta abrir o codesandbox, dar um fork e começar a trabalhar no projeto.
+Fique à vontade para criar novas estruturas, pastas e arquivos, o projeto é seu :D
+Mas caso queira rodar local o projeto, basta baixá-lo pelo caminho mostrado abaixo.
+Primeiro instale as dependências, basta usar os comandos:
+npm install
+ou
+yarn
+Para rodá-la, basta usar os comandos yarn start ou npm start.
+Posso usar Pré Compiladores?
+Fique à vontade para usar sass, ou stylus ou algum que o parceljs suporte, vamos rodar o mesmo
+projeto que você =). Para rodar por exemplo um arquivo styl, basta referenciá-lo na tag link do seu
+html o arquivo .styl, ex:
+<link rel="stylesheet" href="index.styl" />
+Como Enviar?
+Para enviar é obrigatório que o seu projeto esteja no codesandbox, mesmo que você escolha
+baixar o projeto e desenvolver localmente, o que esperamos é a URL do seu projeto. Para pegá-la
+basta estar logado na plataforma, clicar em Share e depois em Copy Sandbox Link, como na
+imagem abaixo e nos enviar como resposta deste e-mail que você recebeu.
+Importante
+Mesmo que não tenha tempo hábil para terminá-lo 100%, nossa sugestão é de que submeta-o
+mesmo assim, dessa forma temos um pouco de informação com relação aos seus pontos fortes e
+pontos que ainda estão em fase de desenvolvimento.
+Bom teste :)
