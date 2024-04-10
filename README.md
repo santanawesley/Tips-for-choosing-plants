@@ -22,21 +22,5 @@ Essa é um aplicação responsiva construida sem uso de frameworks, que apresent
 ## Demonstração
 Link do sandbox para o projeto implantado: https://codesandbox.io/p/sandbox/front-end-test-2-forked-plx3n?file=%2Findex.html 
 
-## Instalação e Uso
-1. **Clone o Repositório**
-   git clone https://github.com/santanawesley/Teste-Red_Ventures.git
-
-2. Acesse o Diretório
-  cd Teste-Red_Ventures
-
-3. Instale as Dependências
-  npm install
-
-4. Inicie o Servidor de Desenvolvimento
-  npm start
-
-5. Visualize no Navegador
-  O projeto estará disponível em http://localhost:3000.
-
 ## Autor
 Wesley R. de Santana - wesley0807@gmail.com
